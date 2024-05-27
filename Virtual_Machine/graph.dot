@@ -1,0 +1,21 @@
+digraph G {
+  rankdir = "RL";
+  node [shape = rect, fontname = "sans-serif"];
+  "azurerm_network_interface.terra-VNeT-nic" [label="azurerm_network_interface.terra-VNeT-nic"];
+  "azurerm_network_interface_security_group_association.example" [label="azurerm_network_interface_security_group_association.example"];
+  "azurerm_network_security_group.react" [label="azurerm_network_security_group.react"];
+  "azurerm_public_ip.VM-ip" [label="azurerm_public_ip.VM-ip"];
+  "azurerm_resource_group.kuber" [label="azurerm_resource_group.kuber"];
+  "azurerm_subnet.default" [label="azurerm_subnet.default"];
+  "azurerm_virtual_machine.react" [label="azurerm_virtual_machine.react"];
+  "azurerm_virtual_network.terra-VNeT" [label="azurerm_virtual_network.terra-VNeT"];
+  "azurerm_network_interface.terra-VNeT-nic" -> "azurerm_public_ip.VM-ip";
+  "azurerm_network_interface.terra-VNeT-nic" -> "azurerm_subnet.default";
+  "azurerm_network_interface_security_group_association.example" -> "azurerm_network_interface.terra-VNeT-nic";
+  "azurerm_network_interface_security_group_association.example" -> "azurerm_network_security_group.react";
+  "azurerm_network_security_group.react" -> "azurerm_public_ip.VM-ip";
+  "azurerm_public_ip.VM-ip" -> "azurerm_resource_group.kuber";
+  "azurerm_subnet.default" -> "azurerm_virtual_network.terra-VNeT";
+  "azurerm_virtual_machine.react" -> "azurerm_network_interface.terra-VNeT-nic";
+  "azurerm_virtual_network.terra-VNeT" -> "azurerm_resource_group.kuber";
+}

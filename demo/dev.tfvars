@@ -1,0 +1,13 @@
+ssh-port = 22
+http-port = 80
+https-port = 443
+image-offer = "0001-com-ubuntu-server-jammy"
+image-publisher = "canonical"
+image-sku = "22_04-lts"
+image-version = "latest"
+os-disk-name = "react-os-disk"
+os-disk-caching = "ReadWrite"
+os-disk-create_option = "FromImage"
+os-disk-managed_disk_type = "Standard_LRS"
+os-disk_size_gb = 30
+environment = "Development"
